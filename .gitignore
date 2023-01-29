@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Custom
+.hidden/
+integration-tests/user-creds.py
+integration-tests/user_creds.py
+integration-tests/creds.py
