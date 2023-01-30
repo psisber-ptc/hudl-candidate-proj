@@ -1,9 +1,11 @@
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-import config
-from pages.base_page import BasePage
+from integration_tests import config
+from integration_tests.pages.base_page import BasePage
 
 class LoginPage(BasePage):
     
@@ -20,11 +22,15 @@ class LoginPage(BasePage):
         self._content = {
                             "email_field": (By.ID, "email"),
                             "password_field": (By.ID, "password"),
-                            "login_button": (By.CSS_SELECTOR, "button")
+                            "login_button": (By.CSS_SELECTOR, "button"),
+                            "login_failed_message": (By.CSS_SELECTOR, "*[data-qa-id='error-display']")
                             }
     
     def login_with_email_and_password(self, email, password):
         self.driver.find_element(*(self._content["email_field"])).send_keys(email)
         self.driver.find_element(*(self._content["password_field"])).send_keys(password)
         self.driver.find_element(*(self._content["login_button"])).click()
+    
+    def login_failed(self):
+        return self._is_displayed(self._content["login_failed_message"], 2)
     
