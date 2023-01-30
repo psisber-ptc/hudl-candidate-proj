@@ -4,7 +4,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 
-import config
+from integration_tests import config
 
 def pytest_addoption(parser):
     parser.addoption("--baseurl",

@@ -130,4 +130,4 @@ dmypy.json
 
 #Custom
 .hidden/
-integration-tests/user_creds.py
+integration_tests/user_creds.py
