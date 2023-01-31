@@ -19,7 +19,11 @@ class TestLoginPage():
     valid_invalid_creds_testdata = [
         ("Invalid password test", user_creds.email, "invalid-password", False),
         ("Invalid email test", "invalid-email@bad-domain.com", user_creds.password, False),
-        ("Valid credentails test", user_creds.email, user_creds.password, True)
+        ("Valid credentails test", user_creds.email, user_creds.password, True),
+        ("Case sensitive password test1", user_creds.email, user_creds.password.lower(), False),
+        ("Case sensitive password test2", user_creds.email, user_creds.password.upper(), False),
+        ("Case insensitive email test", user_creds.email.upper(), user_creds.password, True),
+        ("Mismatched valid user and valid password", "tyler.puccio@hudl.com", user_creds.password, False)
     ]
     
     @pytest.mark.parametrize("test_case, email, password, expected_result", valid_invalid_creds_testdata)
