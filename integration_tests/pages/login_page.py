@@ -13,7 +13,6 @@ class LoginPage(BasePage):
         super(LoginPage, self).__init__(driver)
         
         self._url = self._baseurl + "/login"
-        print(f"\n***** URL:  {self._url}")
         
         self._page_loaded_indicator = (By.ID, "app")
         
@@ -21,6 +20,7 @@ class LoginPage(BasePage):
                             "email_field": (By.ID, "email"),
                             "password_field": (By.ID, "password"),
                             "login_button": (By.CSS_SELECTOR, "button"),
+                            "need_help": (By.CSS_SELECTOR, "a[data-qa-id='need-help-link']"),
                             "login_failed_message": (By.CSS_SELECTOR, "*[data-qa-id='error-display']")
                             }
     
@@ -28,6 +28,9 @@ class LoginPage(BasePage):
         self.driver.find_element(*(self._content["email_field"])).send_keys(email)
         self.driver.find_element(*(self._content["password_field"])).send_keys(password)
         self.driver.find_element(*(self._content["login_button"])).click()
+    
+    def need_help(self):
+        self.driver.find_element(*(self._content["need_help"])).click()
     
     def login_failed(self):
         return self._is_displayed(self._content["login_failed_message"], 2)
