@@ -7,10 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from integration_tests import config
 from integration_tests.pages.base_page import BasePage
 
-class LoginPage(BasePage):
+class LoginEnUsPage(BasePage):
     
     def __init__(self, driver):
-        super(LoginPage, self).__init__(driver)
+        super(LoginEnUsPage, self).__init__(driver)
         
         self._url = self._baseurl + "/login"
         
@@ -21,6 +21,7 @@ class LoginPage(BasePage):
                             "password_field": (By.ID, "password"),
                             "login_button": (By.CSS_SELECTOR, "button"),
                             "need_help": (By.CSS_SELECTOR, "a[data-qa-id='need-help-link']"),
+                            "sign_up": (By.CSS_SELECTOR, "a[class*='signUpLink']"),
                             "login_failed_message": (By.CSS_SELECTOR, "*[data-qa-id='error-display']")
                             }
     
@@ -34,4 +35,7 @@ class LoginPage(BasePage):
     
     def login_failed(self):
         return self._is_displayed(self._content["login_failed_message"], 2)
+    
+    def sign_up(self):
+        self.driver.find_element(*(self._content["sign_up"])).click()
     

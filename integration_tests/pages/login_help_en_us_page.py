@@ -7,10 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from integration_tests import config
 from integration_tests.pages.base_page import BasePage
 
-class LoginHelpPage(BasePage):
+class LoginHelpEnUsPage(BasePage):
     
     def __init__(self, driver):
-        super(LoginHelpPage, self).__init__(driver)
+        super(LoginHelpEnUsPage, self).__init__(driver)
         
         self._url = self._baseurl + "/login/help#"
         
