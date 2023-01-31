@@ -10,10 +10,7 @@ class HomePage(BasePage):
     def __init__(self, driver):
         super(HomePage, self).__init__(driver)
         
-        self._baseurl = config.baseurl
-        
         self._url = self._baseurl + "/home"
-        print(f"\n***** URL:  {self._url}")
         
         self._content = {}
     
