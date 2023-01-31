@@ -12,8 +12,6 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
         
-        self._baseurl = config.baseurl
-        
         self._url = self._baseurl + "/login"
         print(f"\n***** URL:  {self._url}")
         
