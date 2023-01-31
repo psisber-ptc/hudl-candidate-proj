@@ -21,8 +21,8 @@ class BasePage():
         self.driver.get(self._url)
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self._page_loaded_indicator))
     
-    def wait_for_page_to_load(self):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self._page_loaded_indicator))
+    def wait_for_page_to_load(self, timeout):
+        WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(self._page_loaded_indicator))
     
     def is_current_page(self):
         return self.driver.current_url == self._url
