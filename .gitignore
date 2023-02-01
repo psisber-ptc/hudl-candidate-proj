@@ -132,3 +132,4 @@ dmypy.json
 .hidden/
 integration_tests/.hidden
 integration_tests/user_creds.py
+integration_tests/hudl_test_cookies.pkl
