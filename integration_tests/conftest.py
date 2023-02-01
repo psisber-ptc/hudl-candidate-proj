@@ -8,6 +8,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 from integration_tests import config
+from integration_tests.common.driver_manager import DriverManager
 
 def pytest_addoption(parser):
     parser.addoption("--baseurl",
@@ -24,23 +25,11 @@ def pytest_addoption(parser):
 def driver(request):
     config.baseurl = request.config.getoption("--baseurl")
     config.browser = request.config.getoption("--browser").lower()
-    if config.browser == "chrome":
-        _chromedriver = os.path.join(os.getcwd(), "resources", "drivers", "chromedriver")
-        if os.path.isfile(_chromedriver):
-            _service = ChromeService(executable_path=_chromedriver)
-            driver_ = webdriver.Chrome(service=_service)
-        else:
-            driver_ = webdriver.Chrome()
-    elif config.browser == "firefox":
-        _geckodriver = os.path.join(os.getcwd(), "resources", "drivers", "geckodriver")
-        if os.path.isfile(_geckodriver):
-            _service = FirefoxService(executable_path=_geckodriver)
-            driver_ = webdriver.Firefox(service=_service)
-        else:
-            driver_ = webdriver.Firefox()
+    
+    driver_ = DriverManager.get_driver()
     
     def quit():
-        driver_.quit()
+        DriverManager.quit_session()
     
     request.addfinalizer(quit)
     

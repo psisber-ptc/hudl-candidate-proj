@@ -10,7 +10,7 @@ class LandingEsPage(BasePage):
     def __init__(self, driver):
         super(LandingEsPage, self).__init__(driver)
         
-        self._url = "es." + self._baseurl +"/es-xl"
+        self._url = "es." + self._baseurl +"/es-xl/"
         
         self._page_loaded_indicator = (By.ID, "__gatsby")
         

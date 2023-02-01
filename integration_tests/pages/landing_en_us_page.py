@@ -10,7 +10,7 @@ class LandingEnUSPage(BasePage):
     def __init__(self, driver):
         super(LandingEnUSPage, self).__init__(driver)
         
-        self._url = self._baseurl
+        self._url = self._baseurl + "/"
         
         self._page_loaded_indicator = (By.CLASS_NAME, "outer")
         
