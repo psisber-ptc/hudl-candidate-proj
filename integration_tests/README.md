@@ -116,6 +116,15 @@ password = "<>your password"
 ```
 - This file will be ignored by Git.
 
+### Executing Tests
+
+1. In the `integration_tests` directory you can execute all the tests simply using the command ```pytest```
+2. There are other ways of running tests with pytest as covered in the pytest documentation [Usage and Invocations](https://docs.pytest.org/en/6.2.x/usage.html)
+- One of the most useful standard commmand line options is `-k="some string to match`. It will cause pytest to only run tests with the string to match in it. For example:```pytest -k="login"``` only runs tests with "login" in their name.
+3. Some custom options that have been implemented:
+- `--baseurl="base url"` This is useful for testing in different environments or international versions of the site. It defaulst to `https://www.hudl.com`. An example usage would be `pytest --baseurl="https://es.hudl.com"` or `baseurl="https://staging.hudl.com"`
+- `--browser="browswer name"` Chrome and Firefox are currently supported. It defaults to Chrome. An example usage would be `pytest --browser="firfox"`
+
 
 
 
