@@ -205,7 +205,7 @@ class TestLoginEnUSPage():
         home_page.wait_for_page_to_load(5)
         assert home_page.is_current_page()
     
-    @pytest.mark.skip(reason="No way to capture 'Remember me' state between browser sessions. Need to understand mechanism for 'Remember me'")
+    # @pytest.mark.skip(reason="No way to capture 'Remember me' state between browser sessions. Need to understand mechanism for 'Remember me'")
     @pytest.mark.parametrize("test_case, remember_me", remember_me_testdata)
     def test_end_session_without_logout_without_and_with_remember_me(self, driver, test_case, remember_me):
         
@@ -216,6 +216,8 @@ class TestLoginEnUSPage():
             
         TODO - Determine implementation of 'Remember me' function in the browsewr and replicate/simulate between 
         WebDriver browser sessions. Current test(s) try to save and restore cookies, but it does not seem to work.
+        TODO - The "Remember me ' selected test case fails becuase of this issue. It is currently an xfail but cannot be marked as such 
+        because it is a data-driven test. If this issue cannot be resolved the test case will be removed and the requirement will be tested manually.
         """
         # Set up the Login page, Home page and Landing page instances
         login_page = LoginEnUSPage(driver)
