@@ -82,9 +82,7 @@ Also the following test fails but cannot be marked as an xfail because it is a d
 * End session with "Remember me' checked
 If the 'Remember me' cannot be duplocated in an automated test, these tests will have to be tested manually.
 
-## How to Run Tests
-
-### Initial Setup
+## Initial Setup
 
 1. Ensure that prerequisites are installed.
 - Python can be downloaded from [here](https://www.python.org/downloads/). The installation of of Python for all platforms is covered by many sources. One example is [Install Python: Detailed Instructions for Window, Mac, and Linux](https://python.land/installing-python).
@@ -116,14 +114,56 @@ password = "<>your password"
 ```
 - This file will be ignored by Git.
 
-### Executing Tests
+## Executing Tests
 
 1. In the `integration_tests` directory you can execute all the tests simply using the command ```pytest```
 2. There are other ways of running tests with pytest as covered in the pytest documentation [Usage and Invocations](https://docs.pytest.org/en/6.2.x/usage.html)
-- One of the most useful standard commmand line options is `-k="some string to match`. It will cause pytest to only run tests with the string to match in it. For example:```pytest -k="login"``` only runs tests with "login" in their name.
-3. Some custom options that have been implemented:
+- One of the most useful standard commmand line options is `-k="some string to match"`. It will cause pytest to only run tests with the string to match in it. For example:```pytest -k="login"``` only runs tests with "login" in their name.
+3. Some custom options have been implemented:
 - `--baseurl="base url"` This is useful for testing in different environments or international versions of the site. It defaulst to `https://www.hudl.com`. An example usage would be `pytest --baseurl="https://es.hudl.com"` or `baseurl="https://staging.hudl.com"`
 - `--browser="browswer name"` Chrome and Firefox are currently supported. It defaults to Chrome. An example usage would be `pytest --browser="firfox"`
+
+## Developing Tests
+
+### Source Code Managment with Git and Gitflow
+
+1. Refer Git documentation sources for details on using Git. Atlassian has a good tutorial [Getting Started](https://www.atlassian.com/git/tutorials/setting-up-a-repository) and a cheat sheet [Git cheat sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+2. An overview of Gitflow is available from Atlassian [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
+### Working on a Jira Ticket
+
+1. As part of your scrum team activities you will be assigned to write tests for developer Jira Stories.
+- You might collaborate on a Story which includes development and testing, and be assigned one or more Subtasks.
+- You might be assigned your own Jira Story or Task that is purely for testing. However, even in this case your Jira ticket should be linked to one or more developer tickets that are to be tested.
+2. With the repository cloned to your local machine (part of the setup instructions) you should ensure that your code is up to date.
+- You should always start from the `develop` branch, but NEVER work on the `develop` branch.
+- Before starting any work, you should update your copy of the `develop` branch with the `develop` branch on GitHub. You can do this with:
+`git checkout develop`
+`git fetch`
+`git status` (To see how far behind the remote `develop` branch you are)
+`git pull`
+3. Now you need a branch to work on.
+4. If the code you need to test has been merged to `develop`, then you should create a new branch from `develop` with:
+`git checkout -b <name of new branch>`
+- The branch name should be be unique, descriptive, not too long, have no spaces (use `-` to separate words) and be all lower case except perhaps for the Jira project indicator. It should include the Jira ticket ID.
+5. Sometimes the code you need to test has not been merged to develop.
+- You need to checkout the branch that has the code to be tested. do this with:
+`git checkout <branch name>`
+- You may also need to do do a `git fetch -all` before the checkout:
+`git fetch --all`
+`git checkout <branch name>`
+- If you are collaborating closely with the developer, you can work on this branch.
+- More likely though you will be working on your own branch which you will create from the developers branch with:
+`git checkout -b <new branch name>`
+- The same requirements for the branch name previously mentioned apply.
+6. At this point you are ready to develop automated tests. However, you need an environment to develop your and test your tests against.
+
+### Test Development Environment
+
+1. It is assumed that you will be developing your automated tests on your own laptop.
+2. It is also assumed that you can spin up a testable version of the application under test on your laptop, or you or someone else can build and deploy it to some other environment.
+
+### Writing Automated Tests
 
 
 
