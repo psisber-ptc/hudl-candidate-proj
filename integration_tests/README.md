@@ -165,6 +165,34 @@ password = "<>your password"
 
 ### Writing Automated Tests
 
+1. Start by exploring the feature, function or fix that you need to develop a test for to become familiar with it.
+- Not always, but typically the initial test is manual and the automated tests become part of nightly or other periodic tests regression test, or regressions tests for  aspecific phase or milestione of the development cycle.
+- This should be a systemtic, efficient process. Might create a matrix or checklist to help you identify what to test, and to guide your exploratory testing.
+- Use this phase to document the test cases you intend to automate in Jira according to defined guidelines.
+- Also use this phase to identify the pages (or API endpoints because the exploratory testing could be testing an API with Postman) and the key items your tests will need to interact with.
+- Documentation of testcases should be very high level. You will capture the testcase details in the comments and readability of your test code.
+- It goes without saying that any failures you encounter in this phase (or ant any other time) should recorded in Jira according to established guidelines.
+2. Next you should familiarize yourself with any existing automated tests for similar and/or related functionality. You may be able to levearge existing page objects (or endpoint abstractions) for your tests.
+3. At thispoint you should start writing your tests.
+- You should expand the framework in terms of page objects or similar API-related constructs, and simple helper functions.
+- Avoid enhancing the core framework unless you have been assigned to do that.
+- Avoid over design. Do not refactor anticpating a need, but only once there is a clear need for refactoring.
+- Ensure that your tests do not have any dependencies on the implementation of the feature except for how it is structured (e.g. what pages are involved, what functionality is associated with a page and what the page transitions are).
 
+### Contributing Your Code
+
+1. You should be committing your code regularly locally with:
+`git add <item(s) to be added>` to stage specific items or
+`git add .` for all items (note this will not stage any changes in a parent directory)
+folowed by
+git commit [-m "Commit message"]
+2. When you are ready to push your code to GitHub for the first time (sooner rather than later - it does not have to be complete), you can push your branch with
+`git push -u origin <branch name>`
+3. Subsequently you can simply use
+`git push`
+4. When you have developed and tested your test you are ready to merge your code in GitHub.
+- Generally, but not alway,s this will be to the branch that was the starting point for your branch.
+- Push your code again then create a Pull Request (PR) in GitHub according to defined guidelines.
+5. Address the comments from reviewers. Make necessary changes and push the changes until your is approved and merged.
 
 
