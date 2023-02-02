@@ -18,9 +18,10 @@
 
 ### Approach
 #### Prerequisites
+* git (latest) Or git bash for Windows
 * python 3.10
 * pip 22.0.2
-* venv latest
+* venv (latest)
 
 #### Environment
 The test environment is a virtual environment consisting of:
@@ -28,6 +29,7 @@ The test environment is a virtual environment consisting of:
 * selenium 4.8.0
 * pickle5 0.0.11
 The environment is managed with venv, pip and a requirements.txt file.
+The tests were developed and validated on Ubuntu 22.04 running in Windows Subsystem for Linux version 2 on Windows 11. However, they should run in any Windows, Mac or Linux environment that has the prerequisites installed.
 
 ### Framework
 * The test framework is based on Pytest and Selenium is used to automate browser actions.
@@ -79,6 +81,38 @@ This invalidates the following tests:
 Also the following test fails but cannot be marked as an xfail because it is a data-driven test:
 * End session with "Remember me' checked
 If the 'Remember me' cannot be duplocated in an automated test, these tests will have to be tested manually.
+
+## How to Run Tests
+
+### Initial Setup
+
+1. Ensure that prerequisites are installed.
+- Python can be downloaded from [here](https://www.python.org/downloads/). The installation of of Python for all platforms is covered by many sources. One example is [Install Python: Detailed Instructions for Window, Mac, and Linux](https://python.land/installing-python).
+- Usually pip and venv are installed with Python3. However, if they are not install pip according to instructions for your OS, then use pip to install venv.
+- The installation of of Git for all platforms is also covered by many sources. One example is from GitHub [Install Git](https://github.com/git-guides/install-git) or there is a very detailed one from Atlassian [Install Git](https://www.atlassian.com/git/tutorials/install-git).
+3. Clone or fork and clone this repository, or download and extract the zip file.
+- To fork the repository in GitHub use the `Fork` dropdown in the upper right hand corner of the window.
+- To clone either the original or the fork copy the HTTPS URL for the repo from the green `<>Code` dropdown button.
+- Change to the direcxtory you want to be the parent of the repo. Use the command:```git clone <url>```
+4. This will give you a subfolder/subdirectory `hudl-candidate-project`. Navigate to to the `hudl-candidate-proj/integration_tests` subdirectory.
+5. Create a Python virtual environment.
+- Use the following command:```python3 -m venv .venv``` (You can use any name in for your environment rather than `.venv`. The `.` is optional).
+- Activate your envirnment with the command```source .venv/bin/activate``` in Bash on Linux and Mac, and ```.venv\bin\Activate.ps1``` in Powershell on Windows. If you did not use `.venv` for your environment name, substitute what you did use. You should see your command line prefixed with the environment name.
+- Install other requirements using the command```pip install -r requirements.txt```
+6. Set up your Hudl credentials.
+- Using the editor or IDE of your choice, create a file call `user_creds.py` in the `integration_tests` directory.
+- In the file enter```python
+"""
+File for storing sensitive credential information.
+Ignored by git so is not committed and is not pushed to remote repo.
+
+TODO:  Change to use more secure method of storing secrets.
+"""
+
+email = "<your email>"
+password = "<your password>"```
+- This file will be ignored by Git.
+
 
 
 
