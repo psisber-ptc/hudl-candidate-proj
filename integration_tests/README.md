@@ -102,15 +102,9 @@ If the 'Remember me' cannot be duplocated in an automated test, these tests will
 6. Set up your Hudl credentials.
 - Using the editor or IDE of your choice, create a file call `user_creds.py` in the `integration_tests` directory.
 - In the file enter```python
-"""
-File for storing sensitive credential information.
-Ignored by git so is not committed and is not pushed to remote repo.
-
-TODO:  Change to use more secure method of storing secrets.
-"""
-
 email = "<your email>"
-password = "<your password>"```
+password = "<your password>"
+```
 - This file will be ignored by Git.
 
 
