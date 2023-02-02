@@ -93,17 +93,26 @@ If the 'Remember me' cannot be duplocated in an automated test, these tests will
 3. Clone or fork and clone this repository, or download and extract the zip file.
 - To fork the repository in GitHub use the `Fork` dropdown in the upper right hand corner of the window.
 - To clone either the original or the fork copy the HTTPS URL for the repo from the green `<>Code` dropdown button.
-- Change to the direcxtory you want to be the parent of the repo. Use the command:```git clone <url>```
+- Change to the direcxtory you want to be the parent of the repo. Use the command:
+```git clone <url>```
 4. This will give you a subfolder/subdirectory `hudl-candidate-project`. Navigate to to the `hudl-candidate-proj/integration_tests` subdirectory.
 5. Create a Python virtual environment.
-- Use the following command:```python3 -m venv .venv``` (You can use any name in for your environment rather than `.venv`. The `.` is optional).
-- Activate your envirnment with the command```source .venv/bin/activate``` in Bash on Linux and Mac, and ```.venv\bin\Activate.ps1``` in Powershell on Windows. If you did not use `.venv` for your environment name, substitute what you did use. You should see your command line prefixed with the environment name.
-- Install other requirements using the command```pip install -r requirements.txt```
+- Use the following command:
+```python3 -m venv .venv```
+(You can use any name in for your environment rather than `.venv`. The `.` is optional).
+- Activate your envirnment with the command
+```source .venv/bin/activate``` 
+in Bash on Linux and Mac, and 
+```.venv\bin\Activate.ps1``` 
+in Powershell on Windows. If you did not use `.venv` for your environment name, substitute what you did use. You should see your command line prefixed with the environment name.
+- Install other requirements using the command
+```pip install -r requirements.txt```
 6. Set up your Hudl credentials.
 - Using the editor or IDE of your choice, create a file call `user_creds.py` in the `integration_tests` directory.
-- In the file enter```python
+- In the file enter
+``` python
 email = "<your email>"
-password = "<your password>"
+password = "<>your password"
 ```
 - This file will be ignored by Git.
 
