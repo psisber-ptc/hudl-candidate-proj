@@ -1,5 +1,7 @@
 import pytest
-import os
+
+# ***** Some common imports for easy reference
+# import os
 # import re
 # import requests
 # import urlib
@@ -7,7 +9,8 @@ import os
 # from dateparser.search import search_dates
 # from bs4 import BeautifulSoup
 # import glob as glob
-from time import sleep
+# from time import sleep
+# ***************************************************
 
 from integration_tests import user_creds
 from integration_tests.common.driver_manager import DriverManager

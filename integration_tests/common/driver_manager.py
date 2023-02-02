@@ -25,7 +25,7 @@ class DriverManager():
         
         """
         Instantiates a webdriver for the applicable browser according to a value in config.py. 
-        Value in config.py is set in conftest.py from a custom command line argument --browsername which defaulst to chrome.
+        Value in config.py is set in conftest.py from a custom command line argument --browser which defaulst to chrome.
         Command line arguments are defined in conftest.py.
         Returns:
             webdriver: webdriver for the applicable browser
