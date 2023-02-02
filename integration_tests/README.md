@@ -122,6 +122,7 @@ password = "<>your password"
 3. Some custom options have been implemented:
 - `--baseurl="base url"` This is useful for testing in different environments or international versions of the site. It defaulst to `https://www.hudl.com`. An example usage would be `pytest --baseurl="https://es.hudl.com"` or `baseurl="https://staging.hudl.com"`
 - `--browser="browswer name"` Chrome and Firefox are currently supported. It defaults to Chrome. An example usage would be `pytest --browser="firfox"`
+**NOTE: The final test will fail due to the issue with replicating the 'Remember me' functionality**
 
 ## Developing Tests
 
