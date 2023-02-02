@@ -34,6 +34,14 @@ The environment is managed with venv, pip and a requirements.txt file.
 * All framework and test code is in Python except where Javascript snippets are executed in Selenium for specific pruposes.
 * The test framework will be configured to support both Chrome and Firefox browsers to demonstrate multiple browser support.
 
+### Architecture
+In order to develop robust and extensible tests the following are implemented:
+* Page Object Model with a Base page class.
+- The pages encapsulate and abstract the details of the page implmenetation to make tests more robust against changes
+* A Datamanager class is used to encapsulate and abstract functionality associated with the driver, borwser, window manipulation, etc.
+* Data-driven tests are used to implement similar tests (differ primarily in test data) with minimal code repetition
+Note that no Base test class is implemented. Since there is only one test class currently, it is not clear yet what functionality for tests should be pushed down to a Base class.
+
 ### Analysis
 A matrix was used for identifying possible test cases.
 The horizontal axis includes all actions that were enabled on the Login page, plus Logout, which is closely related.
